@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Class: S3::Service [s3 ]</title>
+  <title>Class: Stree::Service [stree ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -46,16 +46,16 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Class</strong></td>
-          <td class="class-name-in-header">S3::Service</td>
+          <td class="class-name-in-header">Stree::Service</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
 
 
-                <a href="../../files/lib/s3/service_rb.html">
+                <a href="../../files/lib/stree/service_rb.html">
 
-                lib/s3/service.rb
+                lib/stree/service.rb
 
                 </a>
 
@@ -72,7 +72,7 @@
 
                 <a href="Object.html">
 
-                S3::Object
+                Stree::Object
 
                </a>
 
@@ -108,8 +108,6 @@
         <a href="#M000015">find_all</a>&nbsp;&nbsp;
 
         <a href="#M000013">find_first</a>&nbsp;&nbsp;
-
-        <a href="#M000018">inspect</a>&nbsp;&nbsp;
 
         <a href="#M000008">new</a>&nbsp;&nbsp;
 
@@ -195,19 +193,19 @@
 </table>
 <h4>Options:</h4>
 <table>
-<tr><td valign="top"><tt>:access_key_id</tt>:</td><td>Amazon access key id, required
+<tr><td valign="top"><tt>access_key_id</tt>:</td><td>Amazon access key id, required
 
 </td></tr>
-<tr><td valign="top"><tt>:secret_access_key</tt>:</td><td>Amazon secret access key, required
+<tr><td valign="top"><tt>secret_access_key</tt>:</td><td>Amazon secret access key, required
 
 </td></tr>
-<tr><td valign="top"><tt>:use_ssl</tt>:</td><td>true if use ssl in connection, otherwise false
+<tr><td valign="top"><tt>use_ssl</tt>:</td><td>true if use ssl in connection, otherwise false
 
 </td></tr>
-<tr><td valign="top"><tt>:timeout</tt>:</td><td>parameter for Net::HTTP module
+<tr><td valign="top"><tt>timeout</tt>:</td><td>parameter for Net::HTTP module
 
 </td></tr>
-<tr><td valign="top"><tt>:debug</tt>:</td><td>if debuging informations are needed
+<tr><td valign="top"><tt>debug</tt>:</td><td>prints the raw requests to STDOUT
 
 </td></tr>
 </table>
@@ -216,7 +214,7 @@
             onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000008-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 21</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 21</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>)
       <span class="ruby-ivar">@access_key_id</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:access_key_id</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;No access key id given&quot;</span>)
       <span class="ruby-ivar">@secret_access_key</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:secret_access_key</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;No secret access key given&quot;</span>)
@@ -257,7 +255,7 @@ Compares service to other, by access_key_id and secret_access_key
             onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000007-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 8</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 8</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">access_key_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">access_key_id</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">secret_access_key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">secret_access_key</span>
     <span class="ruby-keyword kw">end</span>
@@ -283,11 +281,15 @@ Compares service to other, by access_key_id and secret_access_key
 
         <div class="method-description">
 
+          <p>
+Returns all buckets in the service and caches the result (see reload)
+</p>
+
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000009-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 29</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 30</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">buckets</span>(<span class="ruby-identifier">reload</span> = <span class="ruby-keyword kw">false</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reload</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@buckets</span>.<span class="ruby-identifier">nil?</span>
         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">service_request</span>(<span class="ruby-identifier">:get</span>)
@@ -318,11 +320,15 @@ Compares service to other, by access_key_id and secret_access_key
 
         <div class="method-description">
 
+          <p>
+Builds new bucket with given name
+</p>
+
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000012-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 49</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 51</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build</span>(<span class="ruby-identifier">name</span>)
         <span class="ruby-constant">Bucket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">proxy_owner</span>, <span class="ruby-identifier">name</span>)
       <span class="ruby-keyword kw">end</span>
@@ -348,11 +354,16 @@ Compares service to other, by access_key_id and secret_access_key
 
         <div class="method-description">
 
+          <p>
+Destroy all buckets in the service. Doesn&#8217;t destroy non-empty buckets
+by default, pass true to force destroy (USE WITH CARE!).
+</p>
+
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000017-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 67</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 75</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy_all</span>(<span class="ruby-identifier">force</span> = <span class="ruby-keyword kw">false</span>)
         <span class="ruby-identifier">proxy_target</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bucket</span><span class="ruby-operator">|</span>
           <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">destroy</span>(<span class="ruby-identifier">force</span>)
@@ -399,11 +410,15 @@ Alias for <a href="Service.html#M000013">find_first</a>
 
         <div class="method-description">
 
+          <p>
+Find all buckets in the service
+</p>
+
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000015-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 59</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 63</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_all</span>
         <span class="ruby-identifier">proxy_target</span>
       <span class="ruby-keyword kw">end</span>
@@ -429,45 +444,19 @@ Alias for <a href="Service.html#M000013">find_first</a>
 
         <div class="method-description">
 
+          <p>
+Finds the bucket with given name
+</p>
+
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000013-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 53</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 56</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_first</span>(<span class="ruby-identifier">name</span>)
         <span class="ruby-identifier">bucket</span> = <span class="ruby-identifier">build</span>(<span class="ruby-identifier">name</span>)
         <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">retrieve</span>
       <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div id="method-M000018" class="method-detail">
-        <a name="M000018"></a>
-
-        <div class="method-heading">
-
-          <a href="#M000018" class="method-signature">
-
-          <span class="method-name">inspect</span><span class="method-args">()</span>
-
-          </a>
-
-        </div>
-
-        <div class="method-description">
-
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000018-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 74</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
-      <span class="ruby-node">&quot;#&lt;#{self.class}:#@access_key_id&gt;&quot;</span>
-    <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
 
@@ -498,7 +487,7 @@ Return 443 or 80, depends on use_ssl value from initializer
             onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000011-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 44</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 45</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">port</span>
       <span class="ruby-identifier">use_ssl</span> <span class="ruby-value">? </span><span class="ruby-value">443</span> <span class="ruby-operator">:</span> <span class="ruby-value">80</span>
     <span class="ruby-keyword kw">end</span>
@@ -533,7 +522,7 @@ value from initializer
             onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000010-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 39</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 40</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">protocol</span>
       <span class="ruby-identifier">use_ssl</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;https://&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;http://&quot;</span>
     <span class="ruby-keyword kw">end</span>
@@ -559,11 +548,15 @@ value from initializer
 
         <div class="method-description">
 
+          <p>
+Reloads the bucket list (clears the cache)
+</p>
+
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000016-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/service.rb, line 63</span>
+<span class="ruby-comment cmt"># File lib/stree/service.rb, line 68</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reload</span>
         <span class="ruby-identifier">proxy_owner</span>.<span class="ruby-identifier">buckets</span>(<span class="ruby-keyword kw">true</span>)
       <span class="ruby-keyword kw">end</span>

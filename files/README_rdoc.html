@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>File: README.rdoc [s3 ]</title>
+  <title>File: README.rdoc [stree ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
@@ -53,7 +53,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>2009-07-10 16:36:20 +0200</td>
+      <td>2009-07-13 11:27:34 +0200</td>
     </tr>
     </table>
   </div>
@@ -64,13 +64,93 @@
   <div id="contextContent">
 
     <div id="description">
-      <h1>s3</h1>
+      <h1><a href="../classes/Stree.html">Stree</a></h1>
+<ul>
+<li>repository: <a
+href="http://github.com/qoobaa/stree">github.com/qoobaa/stree</a>
+
+</li>
+<li>issue tracker: <a
+href="http://github.com/qoobaa/stree/issues">github.com/qoobaa/stree/issues</a>
+
+</li>
+<li>rdoc: <a href="http://qoobaa.github.com/stree">qoobaa.github.com/stree</a>
+
+</li>
+</ul>
+<h2>Usage</h2>
 <p>
-Description goes here.
+Coming soon, see Rdoc documentation.
 </p>
+<h2>Command tool usage</h2>
+<p>
+You have to pass access key id (-a) and secret access key (-s) to the
+command line tool. <a href="../classes/Stree.html">Stree</a> reads
+ACCESS_KEY_ID and SECRET_ACCESS_KEY environment variables and uses them by
+default, so if you don&#8217;t want to pass them each time, export them
+(e.g. in .bashrc file).
+</p>
+<ul>
+<li>list buckets
+
+<pre>
+  stree bucket
+</pre>
+</li>
+<li>create bucket
+
+<pre>
+  stree bucket add name-of-bucket
+</pre>
+</li>
+<li>list objects in bucket
+
+<pre>
+  stree bucket show name-of-bucket
+</pre>
+</li>
+<li>destroy bucket
+
+<pre>
+  stree bucket remove name-of-bucket
+</pre>
+</li>
+<li>list objects (in all buckets)
+
+<pre>
+  stree object
+</pre>
+</li>
+<li>show the object information
+
+<pre>
+  stree object show bucket_name/path/to/object.extension
+</pre>
+</li>
+<li>download the content of the object
+
+<pre>
+  stree object show bucket_name/path/to/object.extension filename_to_store_the_content.extension
+</pre>
+</li>
+<li>show the content of the object to STDOUT
+
+<pre>
+  stree object show bucket_name/path/to/object.extension -
+</pre>
+</li>
+</ul>
+<p>
+You can also pass &#8212;help to the commmands like:
+</p>
+<pre>
+  stree bucket add --help
+  stree object show --help
+</pre>
 <h2>Copyright</h2>
 <p>
-Copyright &#169; 2009 Jakub Kuźma. See LICENSE for details.
+Copyright &#169; 2009 Jakub Kuźma, Mirosław Boruta. See LICENSE for
+details.
 </p>
 
     </div>

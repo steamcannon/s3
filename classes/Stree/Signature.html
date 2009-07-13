@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Class: S3::Signature [s3 ]</title>
+  <title>Class: Stree::Signature [stree ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -46,16 +46,16 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Class</strong></td>
-          <td class="class-name-in-header">S3::Signature</td>
+          <td class="class-name-in-header">Stree::Signature</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
 
 
-                <a href="../../files/lib/s3/signature_rb.html">
+                <a href="../../files/lib/stree/signature_rb.html">
 
-                lib/s3/signature.rb
+                lib/stree/signature.rb
 
                 </a>
 
@@ -72,7 +72,7 @@
 
                 <a href="Object.html">
 
-                S3::Object
+                Stree::Object
 
                </a>
 
@@ -95,15 +95,6 @@ Class responsible for generating signatures to requests.
 Implements algorithm defined by Amazon Web Services to sign request with
 secret private credentials
 </p>
-<h3>Authors:</h3>
-<ul>
-<li>Jakub Kuźma,
-
-</li>
-<li>Mirosław Boruta
-
-</li>
-</ul>
 <h3>See:</h3>
 <p>
 <a
@@ -120,7 +111,7 @@ href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentic
 
       <div class="name-list">
 
-        <a href="#M000037">generate</a>&nbsp;&nbsp;
+        <a href="#M000034">generate</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -141,12 +132,12 @@ href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentic
       <h3 class="section-bar">Public Class methods</h3>
 
 
-      <div id="method-M000037" class="method-detail">
-        <a name="M000037"></a>
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
 
         <div class="method-heading">
 
-          <a href="#M000037" class="method-signature">
+          <a href="#M000034" class="method-signature">
 
           <span class="method-name">generate</span><span class="method-args">(options)</span>
 
@@ -160,36 +151,25 @@ href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentic
 Generates signature for given parameters
 </p>
 <h4>Parameters:</h4>
-<table>
-<tr><td valign="top"><tt>options</tt>:</td><td>a hash that contains options listed below
-
-</td></tr>
-</table>
+<p>
+<tt>options</tt>: a hash that contains options listed below
+</p>
 <h4>Options:</h4>
-<table>
-<tr><td valign="top"><tt>:host</tt>:</td><td>hostname
-
-</td></tr>
-<tr><td valign="top"><tt>:request</tt>:</td><td>Net::HTTPRequest object with correct headers
-
-</td></tr>
-<tr><td valign="top"><tt>:access_key_id</tt>:</td><td>access key id
-
-</td></tr>
-<tr><td valign="top"><tt>:secret_access_key</tt>:</td><td>secret access key
-
-</td></tr>
-</table>
+<p>
+<tt>host</tt>: hostname <tt>request</tt>: Net::HTTPRequest object with
+correct headers <tt>access_key_id</tt>: access key id
+<tt>secret_access_key</tt>: secret access key
+</p>
 <h4>Returns:</h4>
 <p>
 Generated signature for given hostname and request
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000037-source">
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/s3/signature.rb, line 30</span>
+<span class="ruby-comment cmt"># File lib/stree/signature.rb, line 26</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">options</span>)
       <span class="ruby-identifier">request</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:request</span>]
       <span class="ruby-identifier">host</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:host</span>]
