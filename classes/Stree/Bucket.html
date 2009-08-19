@@ -95,37 +95,37 @@
 
       <div class="name-list">
 
-        <a href="#M000020">==</a>&nbsp;&nbsp;
+        <a href="#M000026">==</a>&nbsp;&nbsp;
 
-        <a href="#M000028">build</a>&nbsp;&nbsp;
+        <a href="#M000034">build</a>&nbsp;&nbsp;
 
-        <a href="#M000022">destroy</a>&nbsp;&nbsp;
+        <a href="#M000028">destroy</a>&nbsp;&nbsp;
 
-        <a href="#M000033">destroy_all</a>&nbsp;&nbsp;
+        <a href="#M000039">destroy_all</a>&nbsp;&nbsp;
 
-        <a href="#M000021">exists?</a>&nbsp;&nbsp;
+        <a href="#M000027">exists?</a>&nbsp;&nbsp;
 
-        <a href="#M000030">find</a>&nbsp;&nbsp;
+        <a href="#M000036">find</a>&nbsp;&nbsp;
 
-        <a href="#M000031">find_all</a>&nbsp;&nbsp;
+        <a href="#M000037">find_all</a>&nbsp;&nbsp;
 
-        <a href="#M000029">find_first</a>&nbsp;&nbsp;
+        <a href="#M000035">find_first</a>&nbsp;&nbsp;
 
-        <a href="#M000025">host</a>&nbsp;&nbsp;
+        <a href="#M000031">host</a>&nbsp;&nbsp;
 
-        <a href="#M000019">location</a>&nbsp;&nbsp;
+        <a href="#M000025">location</a>&nbsp;&nbsp;
 
-        <a href="#M000027">objects</a>&nbsp;&nbsp;
+        <a href="#M000033">objects</a>&nbsp;&nbsp;
 
-        <a href="#M000026">path_prefix</a>&nbsp;&nbsp;
+        <a href="#M000032">path_prefix</a>&nbsp;&nbsp;
 
-        <a href="#M000032">reload</a>&nbsp;&nbsp;
+        <a href="#M000038">reload</a>&nbsp;&nbsp;
 
-        <a href="#M000018">retrieve</a>&nbsp;&nbsp;
+        <a href="#M000024">retrieve</a>&nbsp;&nbsp;
 
-        <a href="#M000023">save</a>&nbsp;&nbsp;
+        <a href="#M000029">save</a>&nbsp;&nbsp;
 
-        <a href="#M000024">vhost?</a>&nbsp;&nbsp;
+        <a href="#M000030">vhost?</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -133,6 +133,16 @@
   </div>
 
     <!-- if includes -->
+
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+
+        <span class="include-name"><a href="Parser.html">Parser</a></span>
+
+      </div>
+    </div>
 
     <div id="section">
 
@@ -180,12 +190,12 @@
       <h3 class="section-bar">Public Instance methods</h3>
 
 
-      <div id="method-M000020" class="method-detail">
-        <a name="M000020"></a>
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
 
         <div class="method-heading">
 
-          <a href="#M000020" class="method-signature">
+          <a href="#M000026" class="method-signature">
 
           <span class="method-name">==</span><span class="method-args">(other)</span>
 
@@ -201,10 +211,10 @@ objects are the same, and both have the same buckets (see bucket equality)
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000020-source">
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 31</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 32</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">service</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">service</span>
     <span class="ruby-keyword kw">end</span>
@@ -215,12 +225,12 @@ objects are the same, and both have the same buckets (see bucket equality)
       </div>
 
 
-      <div id="method-M000028" class="method-detail">
-        <a name="M000028"></a>
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
 
         <div class="method-heading">
 
-          <a href="#M000028" class="method-signature">
+          <a href="#M000034" class="method-signature">
 
           <span class="method-name">build</span><span class="method-args">(key)</span>
 
@@ -235,12 +245,12 @@ Builds the object in the bucket with given key
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000028-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000028-source">
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 104</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 99</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build</span>(<span class="ruby-identifier">key</span>)
-        <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">proxy_owner</span>, <span class="ruby-identifier">key</span>)
+        <span class="ruby-constant">Object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:new</span>, <span class="ruby-identifier">proxy_owner</span>, <span class="ruby-identifier">:key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>)
       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -249,12 +259,12 @@ Builds the object in the bucket with given key
       </div>
 
 
-      <div id="method-M000022" class="method-detail">
-        <a name="M000022"></a>
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
 
         <div class="method-heading">
 
-          <a href="#M000022" class="method-signature">
+          <a href="#M000028" class="method-signature">
 
           <span class="method-name">destroy</span><span class="method-args">(force = false)</span>
 
@@ -270,12 +280,12 @@ not empty. You can destroy non-empty bucket passing true (to force destroy)
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000022-source">
+            onclick="toggleCode('M000028-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000028-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 47</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 48</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>(<span class="ruby-identifier">force</span> = <span class="ruby-keyword kw">false</span>)
-      <span class="ruby-identifier">bucket_request</span>(<span class="ruby-identifier">:delete</span>)
+      <span class="ruby-identifier">delete_bucket</span>
       <span class="ruby-keyword kw">true</span>
     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">BucketNotEmpty</span>
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">force</span>
@@ -292,12 +302,12 @@ not empty. You can destroy non-empty bucket passing true (to force destroy)
       </div>
 
 
-      <div id="method-M000033" class="method-detail">
-        <a name="M000033"></a>
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
 
         <div class="method-heading">
 
-          <a href="#M000033" class="method-signature">
+          <a href="#M000039" class="method-signature">
 
           <span class="method-name">destroy_all</span><span class="method-args">()</span>
 
@@ -312,10 +322,10 @@ Destroys all keys in the bucket
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000033-source">
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 132</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 127</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy_all</span>
         <span class="ruby-identifier">proxy_target</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">object</span><span class="ruby-operator">|</span>
           <span class="ruby-identifier">object</span>.<span class="ruby-identifier">destroy</span>
@@ -328,12 +338,12 @@ Destroys all keys in the bucket
       </div>
 
 
-      <div id="method-M000021" class="method-detail">
-        <a name="M000021"></a>
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
 
         <div class="method-heading">
 
-          <a href="#M000021" class="method-signature">
+          <a href="#M000027" class="method-signature">
 
           <span class="method-name">exists?</span><span class="method-args">()</span>
 
@@ -349,10 +359,10 @@ instead.
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000021-source">
+            onclick="toggleCode('M000027-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000027-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 37</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 38</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exists?</span>
       <span class="ruby-identifier">retrieve</span>
       <span class="ruby-keyword kw">true</span>
@@ -366,8 +376,8 @@ instead.
       </div>
 
 
-      <div id="method-M000030" class="method-detail">
-        <a name="M000030"></a>
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
 
         <div class="method-heading">
 
@@ -378,19 +388,19 @@ instead.
         <div class="method-description">
 
           <p>
-Alias for <a href="Bucket.html#M000029">find_first</a>
+Alias for <a href="Bucket.html#M000035">find_first</a>
 </p>
 
         </div>
       </div>
 
 
-      <div id="method-M000031" class="method-detail">
-        <a name="M000031"></a>
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
 
         <div class="method-heading">
 
-          <a href="#M000031" class="method-signature">
+          <a href="#M000037" class="method-signature">
 
           <span class="method-name">find_all</span><span class="method-args">(options = {})</span>
 
@@ -421,12 +431,12 @@ occurrence of the delimiter to be rolled up into a single result element
 </table>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000031-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000031-source">
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 122</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 117</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_all</span>(<span class="ruby-identifier">options</span> = {})
-        <span class="ruby-identifier">proxy_owner</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:fetch_objects</span>, <span class="ruby-identifier">options</span>)
+        <span class="ruby-identifier">proxy_owner</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:list_bucket</span>, <span class="ruby-identifier">options</span>)
       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -435,12 +445,12 @@ occurrence of the delimiter to be rolled up into a single result element
       </div>
 
 
-      <div id="method-M000029" class="method-detail">
-        <a name="M000029"></a>
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
 
         <div class="method-heading">
 
-          <a href="#M000029" class="method-signature">
+          <a href="#M000035" class="method-signature">
 
           <span class="method-name">find_first</span><span class="method-args">(name)</span>
 
@@ -455,10 +465,10 @@ Finds first object with given name or raises the exception if not found
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000029-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000029-source">
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 110</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 105</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_first</span>(<span class="ruby-identifier">name</span>)
         <span class="ruby-identifier">object</span> = <span class="ruby-identifier">build</span>(<span class="ruby-identifier">name</span>)
         <span class="ruby-identifier">object</span>.<span class="ruby-identifier">retrieve</span>
@@ -470,12 +480,12 @@ Finds first object with given name or raises the exception if not found
       </div>
 
 
-      <div id="method-M000025" class="method-detail">
-        <a name="M000025"></a>
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
 
         <div class="method-heading">
 
-          <a href="#M000025" class="method-signature">
+          <a href="#M000031" class="method-signature">
 
           <span class="method-name">host</span><span class="method-args">()</span>
 
@@ -490,10 +500,10 @@ Returns host name of the bucket according (see vhost?)
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000025-source">
+            onclick="toggleCode('M000031-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000031-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 80</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 75</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">host</span>
       <span class="ruby-identifier">vhost?</span> <span class="ruby-value">? </span><span class="ruby-node">&quot;#@name.#{HOST}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{HOST}&quot;</span>
     <span class="ruby-keyword kw">end</span>
@@ -504,12 +514,12 @@ Returns host name of the bucket according (see vhost?)
       </div>
 
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
 
         <div class="method-heading">
 
-          <a href="#M000019" class="method-signature">
+          <a href="#M000025" class="method-signature">
 
           <span class="method-name">location</span><span class="method-args">(reload = false)</span>
 
@@ -524,14 +534,13 @@ Returns location of the bucket, e.g. &#8220;EU&#8220;
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000019-source">
+            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000025-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 19</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 21</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">location</span>(<span class="ruby-identifier">reload</span> = <span class="ruby-keyword kw">false</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reload</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">nil?</span>
-        <span class="ruby-identifier">response</span> = <span class="ruby-identifier">bucket_request</span>(<span class="ruby-identifier">:get</span>, <span class="ruby-identifier">:params</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span> })
-        <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">parse_location</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+        <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">location_constraint</span>
       <span class="ruby-keyword kw">else</span>
         <span class="ruby-ivar">@location</span>
       <span class="ruby-keyword kw">end</span>
@@ -543,12 +552,12 @@ Returns location of the bucket, e.g. &#8220;EU&#8220;
       </div>
 
 
-      <div id="method-M000027" class="method-detail">
-        <a name="M000027"></a>
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
 
         <div class="method-heading">
 
-          <a href="#M000027" class="method-signature">
+          <a href="#M000033" class="method-signature">
 
           <span class="method-name">objects</span><span class="method-args">(reload = false)</span>
 
@@ -563,51 +572,16 @@ Returns the objects in the bucket and caches the result (see reload).
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000027-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000027-source">
+            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000033-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 93</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 88</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">objects</span>(<span class="ruby-identifier">reload</span> = <span class="ruby-keyword kw">false</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reload</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@objects</span>.<span class="ruby-identifier">nil?</span>
-        <span class="ruby-ivar">@objects</span> = <span class="ruby-identifier">fetch_objects</span>
+        <span class="ruby-ivar">@objects</span> = <span class="ruby-identifier">list_bucket</span>
       <span class="ruby-keyword kw">else</span>
         <span class="ruby-ivar">@objects</span>
       <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div id="method-M000026" class="method-detail">
-        <a name="M000026"></a>
-
-        <div class="method-heading">
-
-          <a href="#M000026" class="method-signature">
-
-          <span class="method-name">path_prefix</span><span class="method-args">()</span>
-
-          </a>
-
-        </div>
-
-        <div class="method-description">
-
-          <p>
-Returns path prefix for non VHOST bucket. Path prefix is used instead of
-VHOST name, e.g. &#8220;bucket_name/&#8220;
-</p>
-
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000026-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 87</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path_prefix</span>
-      <span class="ruby-identifier">vhost?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;#@name/&quot;</span>
     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -623,6 +597,41 @@ VHOST name, e.g. &#8220;bucket_name/&#8220;
 
           <a href="#M000032" class="method-signature">
 
+          <span class="method-name">path_prefix</span><span class="method-args">()</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Returns path prefix for non VHOST bucket. Path prefix is used instead of
+VHOST name, e.g. &#8220;bucket_name/&#8220;
+</p>
+
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000032-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 82</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path_prefix</span>
+      <span class="ruby-identifier">vhost?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;#@name/&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+
+          <a href="#M000038" class="method-signature">
+
           <span class="method-name">reload</span><span class="method-args">()</span>
 
           </a>
@@ -636,10 +645,10 @@ Reloads the object list (clears the cache)
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000032-source">
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 127</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 122</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reload</span>
         <span class="ruby-identifier">proxy_owner</span>.<span class="ruby-identifier">objects</span>(<span class="ruby-keyword kw">true</span>)
       <span class="ruby-keyword kw">end</span>
@@ -650,12 +659,12 @@ Reloads the object list (clears the cache)
       </div>
 
 
-      <div id="method-M000018" class="method-detail">
-        <a name="M000018"></a>
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
 
         <div class="method-heading">
 
-          <a href="#M000018" class="method-signature">
+          <a href="#M000024" class="method-signature">
 
           <span class="method-name">retrieve</span><span class="method-args">()</span>
 
@@ -672,12 +681,12 @@ to it, etc.
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000018-source">
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 13</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 15</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">retrieve</span>
-      <span class="ruby-identifier">bucket_request</span>(<span class="ruby-identifier">:get</span>, <span class="ruby-identifier">:params</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:max_keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> })
+      <span class="ruby-identifier">list_bucket</span>(<span class="ruby-identifier">:max_keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
       <span class="ruby-keyword kw">self</span>
     <span class="ruby-keyword kw">end</span>
 </pre>
@@ -687,12 +696,12 @@ to it, etc.
       </div>
 
 
-      <div id="method-M000023" class="method-detail">
-        <a name="M000023"></a>
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
 
         <div class="method-heading">
 
-          <a href="#M000023" class="method-signature">
+          <a href="#M000029" class="method-signature">
 
           <span class="method-name">save</span><span class="method-args">(location = nil)</span>
 
@@ -708,18 +717,12 @@ bucket (:eu or :us)
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000023-source">
+            onclick="toggleCode('M000029-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000029-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 61</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 62</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">location</span> = <span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-identifier">location</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">location</span>
-      <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:headers</span> =<span class="ruby-operator">&gt;</span> {} }
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">location</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">location</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;US&quot;</span>
-        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:body</span>] = <span class="ruby-node">&quot;&lt;CreateBucketConfiguration&gt;&lt;LocationConstraint&gt;#{location}&lt;/LocationConstraint&gt;&lt;/CreateBucketConfiguration&gt;&quot;</span>
-        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:headers</span>][<span class="ruby-identifier">:content_type</span>] = <span class="ruby-value str">&quot;application/xml&quot;</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">bucket_request</span>(<span class="ruby-identifier">:put</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-identifier">create_bucket_configuration</span>(<span class="ruby-identifier">location</span>)
       <span class="ruby-keyword kw">true</span>
     <span class="ruby-keyword kw">end</span>
 </pre>
@@ -729,12 +732,12 @@ bucket (:eu or :us)
       </div>
 
 
-      <div id="method-M000024" class="method-detail">
-        <a name="M000024"></a>
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
 
         <div class="method-heading">
 
-          <a href="#M000024" class="method-signature">
+          <a href="#M000030" class="method-signature">
 
           <span class="method-name">vhost?</span><span class="method-args">()</span>
 
@@ -751,10 +754,10 @@ bucket contains characters like underscore it can&#8217;t be used as VHOST
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000024-source">
+            onclick="toggleCode('M000030-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000030-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 75</span>
+<span class="ruby-comment cmt"># File lib/stree/bucket.rb, line 70</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vhost?</span>
       <span class="ruby-node">&quot;#@name.#{HOST}&quot;</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/\A#{URI::REGEXP::PATTERN::HOSTNAME}\Z/</span>
     <span class="ruby-keyword kw">end</span>

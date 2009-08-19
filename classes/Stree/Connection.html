@@ -102,13 +102,13 @@ Class responsible for handling connections to amazon hosts
 
       <div class="name-list">
 
-        <a href="#M000003">new</a>&nbsp;&nbsp;
+        <a href="#M000009">new</a>&nbsp;&nbsp;
 
-        <a href="#M000006">parse_headers</a>&nbsp;&nbsp;
+        <a href="#M000012">parse_headers</a>&nbsp;&nbsp;
 
-        <a href="#M000005">parse_params</a>&nbsp;&nbsp;
+        <a href="#M000011">parse_params</a>&nbsp;&nbsp;
 
-        <a href="#M000004">request</a>&nbsp;&nbsp;
+        <a href="#M000010">request</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -116,6 +116,16 @@ Class responsible for handling connections to amazon hosts
   </div>
 
     <!-- if includes -->
+
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+
+        <span class="include-name"><a href="Parser.html">Parser</a></span>
+
+      </div>
+    </div>
 
     <div id="section">
 
@@ -195,12 +205,12 @@ Class responsible for handling connections to amazon hosts
       <h3 class="section-bar">Public Class methods</h3>
 
 
-      <div id="method-M000003" class="method-detail">
-        <a name="M000003"></a>
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
 
         <div class="method-heading">
 
-          <a href="#M000003" class="method-signature">
+          <a href="#M000009" class="method-signature">
 
           <span class="method-name">new</span><span class="method-args">(options = {})</span>
 
@@ -236,10 +246,10 @@ Class responsible for handling connections to amazon hosts
 </table>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000003-source">
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 17</span>
+<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 19</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
       <span class="ruby-ivar">@access_key_id</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:access_key_id</span>]
       <span class="ruby-ivar">@secret_access_key</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:secret_access_key</span>]
@@ -254,12 +264,12 @@ Class responsible for handling connections to amazon hosts
       </div>
 
 
-      <div id="method-M000006" class="method-detail">
-        <a name="M000006"></a>
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
 
         <div class="method-heading">
 
-          <a href="#M000006" class="method-signature">
+          <a href="#M000012" class="method-signature">
 
           <span class="method-name">parse_headers</span><span class="method-args">(headers)</span>
 
@@ -287,10 +297,10 @@ interesting headers
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000006-source">
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 105</span>
+<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 107</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse_headers</span>(<span class="ruby-identifier">headers</span>)
       <span class="ruby-identifier">interesting_keys</span> = [<span class="ruby-identifier">:content_type</span>, <span class="ruby-identifier">:x_amz_acl</span>, <span class="ruby-identifier">:range</span>,
                           <span class="ruby-identifier">:if_modified_since</span>, <span class="ruby-identifier">:if_unmodified_since</span>,
@@ -325,12 +335,12 @@ interesting headers
       </div>
 
 
-      <div id="method-M000005" class="method-detail">
-        <a name="M000005"></a>
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
 
         <div class="method-heading">
 
-          <a href="#M000005" class="method-signature">
+          <a href="#M000011" class="method-signature">
 
           <span class="method-name">parse_params</span><span class="method-args">(params)</span>
 
@@ -355,10 +365,10 @@ String &#8212; containing all parameters joined in one params string, i.e.
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000005-source">
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 76</span>
+<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 78</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse_params</span>(<span class="ruby-identifier">params</span>)
       <span class="ruby-identifier">interesting_keys</span> = [<span class="ruby-identifier">:max_keys</span>, <span class="ruby-identifier">:prefix</span>, <span class="ruby-identifier">:marker</span>, <span class="ruby-identifier">:delimiter</span>, <span class="ruby-identifier">:location</span>]
 
@@ -386,12 +396,12 @@ String &#8212; containing all parameters joined in one params string, i.e.
       <h3 class="section-bar">Public Instance methods</h3>
 
 
-      <div id="method-M000004" class="method-detail">
-        <a name="M000004"></a>
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
 
         <div class="method-heading">
 
-          <a href="#M000004" class="method-signature">
+          <a href="#M000010" class="method-signature">
 
           <span class="method-name">request</span><span class="method-args">(method, options)</span>
 
@@ -439,10 +449,10 @@ Net::HTTPResponse object &#8212; response from remote server
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000004-source">
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 42</span>
+<span class="ruby-comment cmt"># File lib/stree/connection.rb, line 44</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span>)
       <span class="ruby-identifier">host</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:host</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">HOST</span>
       <span class="ruby-identifier">path</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:path</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;no path given&quot;</span>)
