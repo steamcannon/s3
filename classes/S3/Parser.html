@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module: Stree::Parser [stree ]</title>
+  <title>Module: S3::Parser [s3 ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -46,16 +46,16 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Module</strong></td>
-          <td class="class-name-in-header">Stree::Parser</td>
+          <td class="class-name-in-header">S3::Parser</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
 
 
-                <a href="../../files/lib/stree/parser_rb.html">
+                <a href="../../files/lib/s3/parser_rb.html">
 
-                lib/stree/parser.rb
+                lib/s3/parser.rb
 
                 </a>
 
@@ -82,17 +82,17 @@
 
       <div class="name-list">
 
-        <a href="#M000007">parse_copy_object_result</a>&nbsp;&nbsp;
+        <a href="#M000005">parse_copy_object_result</a>&nbsp;&nbsp;
 
-        <a href="#M000008">parse_error</a>&nbsp;&nbsp;
+        <a href="#M000006">parse_error</a>&nbsp;&nbsp;
 
-        <a href="#M000004">parse_list_all_my_buckets_result</a>&nbsp;&nbsp;
+        <a href="#M000002">parse_list_all_my_buckets_result</a>&nbsp;&nbsp;
 
-        <a href="#M000006">parse_list_bucket_result</a>&nbsp;&nbsp;
+        <a href="#M000004">parse_list_bucket_result</a>&nbsp;&nbsp;
 
-        <a href="#M000005">parse_location_constraint</a>&nbsp;&nbsp;
+        <a href="#M000003">parse_location_constraint</a>&nbsp;&nbsp;
 
-        <a href="#M000003">rexml_document</a>&nbsp;&nbsp;
+        <a href="#M000001">rexml_document</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -123,12 +123,12 @@
       <h3 class="section-bar">Public Instance methods</h3>
 
 
-      <div id="method-M000007" class="method-detail">
-        <a name="M000007"></a>
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
 
         <div class="method-heading">
 
-          <a href="#M000007" class="method-signature">
+          <a href="#M000005" class="method-signature">
 
           <span class="method-name">parse_copy_object_result</span><span class="method-args">(xml)</span>
 
@@ -139,81 +139,16 @@
         <div class="method-description">
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000007-source">
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/parser.rb, line 33</span>
+<span class="ruby-comment cmt"># File lib/s3/parser.rb, line 33</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_copy_object_result</span>(<span class="ruby-identifier">xml</span>)
       <span class="ruby-identifier">object_attributes</span> = {}
       <span class="ruby-identifier">document</span> = <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>)
       <span class="ruby-identifier">object_attributes</span>[<span class="ruby-identifier">:etag</span>] = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;CopyObjectResult/ETag&quot;</span>].<span class="ruby-identifier">text</span>
       <span class="ruby-identifier">object_attributes</span>[<span class="ruby-identifier">:last_modified</span>] = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;CopyObjectResult/LastModified&quot;</span>].<span class="ruby-identifier">text</span>
       <span class="ruby-identifier">object_attributes</span>
-    <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div id="method-M000008" class="method-detail">
-        <a name="M000008"></a>
-
-        <div class="method-heading">
-
-          <a href="#M000008" class="method-signature">
-
-          <span class="method-name">parse_error</span><span class="method-args">(xml)</span>
-
-          </a>
-
-        </div>
-
-        <div class="method-description">
-
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000008-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/stree/parser.rb, line 41</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_error</span>(<span class="ruby-identifier">xml</span>)
-      <span class="ruby-identifier">document</span> = <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>)
-      <span class="ruby-identifier">code</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;Error/Code&quot;</span>].<span class="ruby-identifier">text</span>
-      <span class="ruby-identifier">message</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;Error/Message&quot;</span>].<span class="ruby-identifier">text</span>
-      [<span class="ruby-identifier">code</span>, <span class="ruby-identifier">message</span>]
-    <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div id="method-M000004" class="method-detail">
-        <a name="M000004"></a>
-
-        <div class="method-heading">
-
-          <a href="#M000004" class="method-signature">
-
-          <span class="method-name">parse_list_all_my_buckets_result</span><span class="method-args">(xml)</span>
-
-          </a>
-
-        </div>
-
-        <div class="method-description">
-
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000004-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/stree/parser.rb, line 10</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_list_all_my_buckets_result</span>(<span class="ruby-identifier">xml</span>)
-      <span class="ruby-identifier">names</span> = []
-      <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>).<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;ListAllMyBucketsResult/Buckets/Bucket/Name&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">text</span> }
-      <span class="ruby-identifier">names</span>
     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -229,7 +164,7 @@
 
           <a href="#M000006" class="method-signature">
 
-          <span class="method-name">parse_list_bucket_result</span><span class="method-args">(xml)</span>
+          <span class="method-name">parse_error</span><span class="method-args">(xml)</span>
 
           </a>
 
@@ -241,7 +176,72 @@
             onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000006-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/parser.rb, line 20</span>
+<span class="ruby-comment cmt"># File lib/s3/parser.rb, line 41</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_error</span>(<span class="ruby-identifier">xml</span>)
+      <span class="ruby-identifier">document</span> = <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>)
+      <span class="ruby-identifier">code</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;Error/Code&quot;</span>].<span class="ruby-identifier">text</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;Error/Message&quot;</span>].<span class="ruby-identifier">text</span>
+      [<span class="ruby-identifier">code</span>, <span class="ruby-identifier">message</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+
+          <a href="#M000002" class="method-signature">
+
+          <span class="method-name">parse_list_all_my_buckets_result</span><span class="method-args">(xml)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000002-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/s3/parser.rb, line 10</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_list_all_my_buckets_result</span>(<span class="ruby-identifier">xml</span>)
+      <span class="ruby-identifier">names</span> = []
+      <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>).<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;ListAllMyBucketsResult/Buckets/Bucket/Name&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">text</span> }
+      <span class="ruby-identifier">names</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+
+          <a href="#M000004" class="method-signature">
+
+          <span class="method-name">parse_list_bucket_result</span><span class="method-args">(xml)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/s3/parser.rb, line 20</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_list_bucket_result</span>(<span class="ruby-identifier">xml</span>)
       <span class="ruby-identifier">objects_attributes</span> = []
       <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>).<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;ListBucketResult/Contents&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
@@ -261,36 +261,6 @@
       </div>
 
 
-      <div id="method-M000005" class="method-detail">
-        <a name="M000005"></a>
-
-        <div class="method-heading">
-
-          <a href="#M000005" class="method-signature">
-
-          <span class="method-name">parse_location_constraint</span><span class="method-args">(xml)</span>
-
-          </a>
-
-        </div>
-
-        <div class="method-description">
-
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000005-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/stree/parser.rb, line 16</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_location_constraint</span>(<span class="ruby-identifier">xml</span>)
-      <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>).<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;LocationConstraint&quot;</span>].<span class="ruby-identifier">text</span>
-    <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-
-        </div>
-      </div>
-
-
       <div id="method-M000003" class="method-detail">
         <a name="M000003"></a>
 
@@ -298,7 +268,7 @@
 
           <a href="#M000003" class="method-signature">
 
-          <span class="method-name">rexml_document</span><span class="method-args">(xml)</span>
+          <span class="method-name">parse_location_constraint</span><span class="method-args">(xml)</span>
 
           </a>
 
@@ -310,7 +280,37 @@
             onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000003-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/parser.rb, line 5</span>
+<span class="ruby-comment cmt"># File lib/s3/parser.rb, line 16</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_location_constraint</span>(<span class="ruby-identifier">xml</span>)
+      <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>).<span class="ruby-identifier">elements</span>[<span class="ruby-value str">&quot;LocationConstraint&quot;</span>].<span class="ruby-identifier">text</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+
+          <a href="#M000001" class="method-signature">
+
+          <span class="method-name">rexml_document</span><span class="method-args">(xml)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000001-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/s3/parser.rb, line 5</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rexml_document</span>(<span class="ruby-identifier">xml</span>)
       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:force_encoding</span>
       <span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span>)

@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Class: Stree::Signature [stree ]</title>
+  <title>Class: S3::Signature [s3 ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -46,16 +46,16 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Class</strong></td>
-          <td class="class-name-in-header">Stree::Signature</td>
+          <td class="class-name-in-header">S3::Signature</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
 
 
-                <a href="../../files/lib/stree/signature_rb.html">
+                <a href="../../files/lib/s3/signature_rb.html">
 
-                lib/stree/signature.rb
+                lib/s3/signature.rb
 
                 </a>
 
@@ -72,7 +72,7 @@
 
                 <a href="Object.html">
 
-                Stree::Object
+                S3::Object
 
                </a>
 
@@ -95,7 +95,7 @@ Class responsible for generating signatures to requests.
 Implements algorithm defined by Amazon Web Services to sign request with
 secret private credentials
 </p>
-<h3>See:</h3>
+<h3>See</h3>
 <p>
 <a
 href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentication.html">docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentication.html</a>
@@ -111,7 +111,9 @@ href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentic
 
       <div class="name-list">
 
-        <a href="#M000040">generate</a>&nbsp;&nbsp;
+        <a href="#M000054">generate</a>&nbsp;&nbsp;
+
+        <a href="#M000055">generate_temporary_url_signature</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -132,12 +134,12 @@ href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentic
       <h3 class="section-bar">Public Class methods</h3>
 
 
-      <div id="method-M000040" class="method-detail">
-        <a name="M000040"></a>
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
 
         <div class="method-heading">
 
-          <a href="#M000040" class="method-signature">
+          <a href="#M000054" class="method-signature">
 
           <span class="method-name">generate</span><span class="method-args">(options)</span>
 
@@ -150,26 +152,31 @@ href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentic
           <p>
 Generates signature for given parameters
 </p>
-<h4>Parameters:</h4>
+<h4>Options</h4>
+<ul>
+<li><tt>:host</tt> - Hostname
+
+</li>
+<li><tt>:request</tt> - Net::HTTPRequest object with correct headers
+
+</li>
+<li><tt>:access_key_id</tt> - Access key id
+
+</li>
+<li><tt>:secret_access_key</tt> - Secret access key
+
+</li>
+</ul>
+<h4>Returns</h4>
 <p>
-<tt>options</tt>: a hash that contains options listed below
-</p>
-<h4>Options:</h4>
-<p>
-<tt>host</tt>: hostname <tt>request</tt>: Net::HTTPRequest object with
-correct headers <tt>access_key_id</tt>: access key id
-<tt>secret_access_key</tt>: secret access key
-</p>
-<h4>Returns:</h4>
-<p>
-Generated signature for given hostname and request
+Generated signature string for given hostname and request
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000040-source">
+            onclick="toggleCode('M000054-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000054-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/signature.rb, line 26</span>
+<span class="ruby-comment cmt"># File lib/s3/signature.rb, line 24</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">options</span>)
       <span class="ruby-identifier">request</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:request</span>]
       <span class="ruby-identifier">host</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:host</span>]
@@ -201,6 +208,69 @@ Generated signature for given hostname and request
       <span class="ruby-identifier">signature</span> = <span class="ruby-identifier">base64</span>.<span class="ruby-identifier">chomp</span>
 
       <span class="ruby-node">&quot;AWS #{access_key_id}:#{signature}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+
+          <a href="#M000055" class="method-signature">
+
+          <span class="method-name">generate_temporary_url_signature</span><span class="method-args">(options)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Generates temporary URL for given resource
+</p>
+<h4>Options</h4>
+<ul>
+<li><tt>:bucket</tt> - <a href="Bucket.html">Bucket</a> in which the resource
+resides
+
+</li>
+<li><tt>:resource</tt> - Path to the resouce you want to create a teporary link
+to
+
+</li>
+<li><tt>:secret_access_key</tt> - Secret access key
+
+</li>
+<li><tt>:expires_on</tt> - Unix time stamp of when the resouce link will expire
+
+</li>
+</ul>
+
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000055-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000055-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/s3/signature.rb, line 66</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate_temporary_url_signature</span>(<span class="ruby-identifier">options</span>)
+      <span class="ruby-identifier">bucket</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:bucket</span>]
+      <span class="ruby-identifier">resource</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:resource</span>]
+      <span class="ruby-identifier">secret_access_key</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:secret_access_key</span>]
+      <span class="ruby-identifier">expires</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:expires_on</span>]
+
+      <span class="ruby-identifier">string_to_sign</span> = <span class="ruby-node">&quot;GET\n\n\n#{expires}\n/#{bucket}/#{resource}&quot;</span>;
+
+      <span class="ruby-identifier">digest</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'sha1'</span>)
+      <span class="ruby-identifier">hmac</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">HMAC</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-identifier">digest</span>, <span class="ruby-identifier">secret_access_key</span>, <span class="ruby-identifier">string_to_sign</span>)
+      <span class="ruby-identifier">base64</span> = <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">encode64</span>(<span class="ruby-identifier">hmac</span>)
+      <span class="ruby-identifier">signature</span> = <span class="ruby-identifier">base64</span>.<span class="ruby-identifier">chomp</span>
+
+      <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">signature</span>)
     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>

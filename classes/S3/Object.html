@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Class: Stree::Object [stree ]</title>
+  <title>Class: S3::Object [s3 ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -46,16 +46,16 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Class</strong></td>
-          <td class="class-name-in-header">Stree::Object</td>
+          <td class="class-name-in-header">S3::Object</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
 
 
-                <a href="../../files/lib/stree/object_rb.html">
+                <a href="../../files/lib/s3/object_rb.html">
 
-                lib/stree/object.rb
+                lib/s3/object.rb
 
                 </a>
 
@@ -72,7 +72,7 @@
 
                 <a href="Object.html">
 
-                Stree::Object
+                S3::Object
 
                </a>
 
@@ -89,7 +89,8 @@
 
     <div id="description">
       <p>
-Class responsible for handling objects stored in S3 buckets
+Class responsible for handling objects stored in <a
+href="../S3.html">S3</a> buckets
 </p>
 
     </div>
@@ -102,31 +103,33 @@ Class responsible for handling objects stored in S3 buckets
 
       <div class="name-list">
 
-        <a href="#M000041">==</a>&nbsp;&nbsp;
+        <a href="#M000029">==</a>&nbsp;&nbsp;
 
-        <a href="#M000044">acl=</a>&nbsp;&nbsp;
+        <a href="#M000032">acl=</a>&nbsp;&nbsp;
 
-        <a href="#M000052">cname_url</a>&nbsp;&nbsp;
+        <a href="#M000041">cname_url</a>&nbsp;&nbsp;
 
-        <a href="#M000047">content</a>&nbsp;&nbsp;
+        <a href="#M000035">content</a>&nbsp;&nbsp;
 
-        <a href="#M000049">copy</a>&nbsp;&nbsp;
+        <a href="#M000037">copy</a>&nbsp;&nbsp;
 
-        <a href="#M000050">destroy</a>&nbsp;&nbsp;
+        <a href="#M000038">destroy</a>&nbsp;&nbsp;
 
-        <a href="#M000046">exists?</a>&nbsp;&nbsp;
+        <a href="#M000034">exists?</a>&nbsp;&nbsp;
 
-        <a href="#M000042">full_key</a>&nbsp;&nbsp;
+        <a href="#M000030">full_key</a>&nbsp;&nbsp;
 
-        <a href="#M000043">key=</a>&nbsp;&nbsp;
+        <a href="#M000031">key=</a>&nbsp;&nbsp;
 
-        <a href="#M000053">new</a>&nbsp;&nbsp;
+        <a href="#M000042">new</a>&nbsp;&nbsp;
 
-        <a href="#M000045">retrieve</a>&nbsp;&nbsp;
+        <a href="#M000033">retrieve</a>&nbsp;&nbsp;
 
-        <a href="#M000048">save</a>&nbsp;&nbsp;
+        <a href="#M000036">save</a>&nbsp;&nbsp;
 
-        <a href="#M000051">url</a>&nbsp;&nbsp;
+        <a href="#M000040">temporary_url</a>&nbsp;&nbsp;
+
+        <a href="#M000039">url</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -287,12 +290,12 @@ Class responsible for handling objects stored in S3 buckets
       <h3 class="section-bar">Public Class methods</h3>
 
 
-      <div id="method-M000053" class="method-detail">
-        <a name="M000053"></a>
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
 
         <div class="method-heading">
 
-          <a href="#M000053" class="method-signature">
+          <a href="#M000042" class="method-signature">
 
           <span class="method-name">new</span><span class="method-args">(bucket, options = {})</span>
 
@@ -303,10 +306,10 @@ Class responsible for handling objects stored in S3 buckets
         <div class="method-description">
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000053-source">
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 159</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 176</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">bucket</span>, <span class="ruby-identifier">options</span> = {})
       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">bucket</span> = <span class="ruby-identifier">bucket</span>
       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">key</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:key</span>]
@@ -324,12 +327,12 @@ Class responsible for handling objects stored in S3 buckets
       <h3 class="section-bar">Public Instance methods</h3>
 
 
-      <div id="method-M000041" class="method-detail">
-        <a name="M000041"></a>
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
 
         <div class="method-heading">
 
-          <a href="#M000041" class="method-signature">
+          <a href="#M000029" class="method-signature">
 
           <span class="method-name">==</span><span class="method-args">(other)</span>
 
@@ -341,14 +344,15 @@ Class responsible for handling objects stored in S3 buckets
 
           <p>
 Compares the object with other object. Returns true if the key of the
-objects are the same, and both have the same buckets (see bucket equality)
+objects are the same, and both have the same buckets (see <a
+href="Bucket.html">Bucket</a> equality)
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000041-source">
+            onclick="toggleCode('M000029-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000029-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 19</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 19</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">key</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">bucket</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">bucket</span>
     <span class="ruby-keyword kw">end</span>
@@ -359,12 +363,12 @@ objects are the same, and both have the same buckets (see bucket equality)
       </div>
 
 
-      <div id="method-M000044" class="method-detail">
-        <a name="M000044"></a>
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
 
         <div class="method-heading">
 
-          <a href="#M000044" class="method-signature">
+          <a href="#M000032" class="method-signature">
 
           <span class="method-name">acl=</span><span class="method-args">(acl)</span>
 
@@ -384,10 +388,10 @@ the server and set to &#8220;public-read&#8221; by default.
 </pre>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000044-source">
+            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000032-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 39</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 40</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acl=</span>(<span class="ruby-identifier">acl</span>)
       <span class="ruby-ivar">@acl</span> = <span class="ruby-identifier">acl</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">&quot;_&quot;</span>, <span class="ruby-value str">&quot;-&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">acl</span>
     <span class="ruby-keyword kw">end</span>
@@ -398,12 +402,12 @@ the server and set to &#8220;public-read&#8221; by default.
       </div>
 
 
-      <div id="method-M000052" class="method-detail">
-        <a name="M000052"></a>
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
 
         <div class="method-heading">
 
-          <a href="#M000052" class="method-signature">
+          <a href="#M000041" class="method-signature">
 
           <span class="method-name">cname_url</span><span class="method-args">()</span>
 
@@ -414,18 +418,17 @@ the server and set to &#8220;public-read&#8221; by default.
         <div class="method-description">
 
           <p>
-Returns Object&#8217;s CNAME URL (without s3.amazonaws.com suffix) using
-protocol specified in <a href="Service.html">Service</a>, e.g. <a
-href="http://domain.com/key/with/path.extension.">domain.com/key/with/path.extension.</a>
-(you have to set the CNAME in your DNS before you use the CNAME URL
-schema).
+Returns Object&#8217;s CNAME URL (without <tt>s3.amazonaws.com</tt> suffix)
+using protocol specified in <a href="Service.html">Service</a>, e.g. <tt><a
+href="http://domain.com/key/with/path.extension">domain.com/key/with/path.extension</a></tt>.
+(you have to set the CNAME in your DNS before using the CNAME URL schema).
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000052-source">
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 103</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 120</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cname_url</span>
       <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-node">&quot;#{protocol}#{name}/#{key}&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">vhost?</span>
     <span class="ruby-keyword kw">end</span>
@@ -436,12 +439,12 @@ schema).
       </div>
 
 
-      <div id="method-M000047" class="method-detail">
-        <a name="M000047"></a>
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
 
         <div class="method-heading">
 
-          <a href="#M000047" class="method-signature">
+          <a href="#M000035" class="method-signature">
 
           <span class="method-name">content</span><span class="method-args">(reload = false)</span>
 
@@ -457,10 +460,10 @@ cache and download the object again.
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000047-source">
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 64</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 65</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content</span>(<span class="ruby-identifier">reload</span> = <span class="ruby-keyword kw">false</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reload</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">nil?</span>
         <span class="ruby-identifier">get_object</span>
@@ -474,12 +477,12 @@ cache and download the object again.
       </div>
 
 
-      <div id="method-M000049" class="method-detail">
-        <a name="M000049"></a>
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
 
         <div class="method-heading">
 
-          <a href="#M000049" class="method-signature">
+          <a href="#M000037" class="method-signature">
 
           <span class="method-name">copy</span><span class="method-args">(options = {})</span>
 
@@ -492,29 +495,30 @@ cache and download the object again.
           <p>
 Copies the file to another key and/or bucket.
 </p>
-<h4>Options:</h4>
-<table>
-<tr><td valign="top"><tt>key</tt>:</td><td>new key to store object in
+<h4>Options</h4>
+<ul>
+<li><tt>:key</tt> - New key to store object in
 
-</td></tr>
-<tr><td valign="top"><tt>bucket</tt>:</td><td>new bucket to store object in (instance of <a
-href="Bucket.html">Stree::Bucket</a>)
+</li>
+<li><tt>:bucket</tt> - New bucket to store object in (instance of <a
+href="Bucket.html">S3::Bucket</a>)
 
-</td></tr>
-<tr><td valign="top"><tt>acl</tt>:</td><td>acl of the copied object (default: &#8220;public-read&#8221;)
+</li>
+<li><tt>:acl</tt> - ACL of the copied object (default:
+&#8220;public-read&#8221;)
 
-</td></tr>
-<tr><td valign="top"><tt>content_type</tt>:</td><td>content type of the copied object (default:
+</li>
+<li><tt>:content_type</tt> - Content type of the copied object (default:
 &#8220;application/octet-stream&#8221;)
 
-</td></tr>
-</table>
+</li>
+</ul>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000049-source">
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 83</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 88</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy</span>(<span class="ruby-identifier">options</span> = {})
       <span class="ruby-identifier">copy_object</span>(<span class="ruby-identifier">options</span>)
     <span class="ruby-keyword kw">end</span>
@@ -525,12 +529,12 @@ href="Bucket.html">Stree::Bucket</a>)
       </div>
 
 
-      <div id="method-M000050" class="method-detail">
-        <a name="M000050"></a>
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
 
         <div class="method-heading">
 
-          <a href="#M000050" class="method-signature">
+          <a href="#M000038" class="method-signature">
 
           <span class="method-name">destroy</span><span class="method-args">()</span>
 
@@ -545,10 +549,10 @@ Destroys the file on the server
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000050-source">
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 88</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 93</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
       <span class="ruby-identifier">delete_object</span>
       <span class="ruby-keyword kw">true</span>
@@ -560,12 +564,12 @@ Destroys the file on the server
       </div>
 
 
-      <div id="method-M000046" class="method-detail">
-        <a name="M000046"></a>
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
 
         <div class="method-heading">
 
-          <a href="#M000046" class="method-signature">
+          <a href="#M000034" class="method-signature">
 
           <span class="method-name">exists?</span><span class="method-args">()</span>
 
@@ -577,15 +581,16 @@ Destroys the file on the server
 
           <p>
 Retrieves the object from the server, returns true if the object exists or
-false otherwise. Uses retrieve method, but catches NoSuchKey exception and
-returns false when it happens
+false otherwise. Uses <a href="Object.html#M000033">retrieve</a> method,
+but catches S3::Error::NoSuchKey exception and returns false when it
+happens
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000046-source">
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 55</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 56</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exists?</span>
       <span class="ruby-identifier">retrieve</span>
       <span class="ruby-keyword kw">true</span>
@@ -599,12 +604,12 @@ returns false when it happens
       </div>
 
 
-      <div id="method-M000042" class="method-detail">
-        <a name="M000042"></a>
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
 
         <div class="method-heading">
 
-          <a href="#M000042" class="method-signature">
+          <a href="#M000030" class="method-signature">
 
           <span class="method-name">full_key</span><span class="method-args">()</span>
 
@@ -619,10 +624,10 @@ Returns full key of the object: e.g. <tt>bucket-name/object/key.ext</tt>
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000042-source">
+            onclick="toggleCode('M000030-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000030-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 24</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 24</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_key</span>
       [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">key</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;/&quot;</span>)
     <span class="ruby-keyword kw">end</span>
@@ -633,12 +638,12 @@ Returns full key of the object: e.g. <tt>bucket-name/object/key.ext</tt>
       </div>
 
 
-      <div id="method-M000043" class="method-detail">
-        <a name="M000043"></a>
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
 
         <div class="method-heading">
 
-          <a href="#M000043" class="method-signature">
+          <a href="#M000031" class="method-signature">
 
           <span class="method-name">key=</span><span class="method-args">(key)</span>
 
@@ -654,10 +659,10 @@ is not valid key name
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000043-source">
+            onclick="toggleCode('M000031-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000031-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 30</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 30</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">key=</span>(<span class="ruby-identifier">key</span>)
       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid key name: #{key}&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">key_valid?</span>(<span class="ruby-identifier">key</span>)
       <span class="ruby-ivar">@key</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">key</span>
@@ -669,12 +674,12 @@ is not valid key name
       </div>
 
 
-      <div id="method-M000045" class="method-detail">
-        <a name="M000045"></a>
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
 
         <div class="method-heading">
 
-          <a href="#M000045" class="method-signature">
+          <a href="#M000033" class="method-signature">
 
           <span class="method-name">retrieve</span><span class="method-args">()</span>
 
@@ -686,15 +691,16 @@ is not valid key name
 
           <p>
 Retrieves the object from the server. Method is used to download object
-information only (content-type, size and so on). It does NOT download the
-content of the object (use the content method to do it).
+information only (content type, size and so on). It does NOT download the
+content of the object (use the <a href="Object.html#M000035">content</a>
+method to do it).
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000045-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000045-source">
+            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000033-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 47</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 48</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">retrieve</span>
       <span class="ruby-identifier">get_object</span>(<span class="ruby-identifier">:headers</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">0</span> })
       <span class="ruby-keyword kw">self</span>
@@ -706,12 +712,12 @@ content of the object (use the content method to do it).
       </div>
 
 
-      <div id="method-M000048" class="method-detail">
-        <a name="M000048"></a>
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
 
         <div class="method-heading">
 
-          <a href="#M000048" class="method-signature">
+          <a href="#M000036" class="method-signature">
 
           <span class="method-name">save</span><span class="method-args">()</span>
 
@@ -726,10 +732,10 @@ Saves the object, returns true if successfull.
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000048-source">
+            onclick="toggleCode('M000036-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000036-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 72</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 73</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>
       <span class="ruby-identifier">put_object</span>
       <span class="ruby-keyword kw">true</span>
@@ -741,12 +747,52 @@ Saves the object, returns true if successfull.
       </div>
 
 
-      <div id="method-M000051" class="method-detail">
-        <a name="M000051"></a>
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
 
         <div class="method-heading">
 
-          <a href="#M000051" class="method-signature">
+          <a href="#M000040" class="method-signature">
+
+          <span class="method-name">temporary_url</span><span class="method-args">(expires_at = Time.now + 3600)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Returns a temporary url to the object that expires on the timestamp given.
+Defaults to one hour expire time.
+</p>
+
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 106</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">temporary_url</span>(<span class="ruby-identifier">expires_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-value">3600</span>)
+      <span class="ruby-identifier">signature</span> = <span class="ruby-constant">Signature</span>.<span class="ruby-identifier">generate_temporary_url_signature</span>(<span class="ruby-identifier">:bucket</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>,
+                                                             <span class="ruby-identifier">:resource</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>,
+                                                             <span class="ruby-identifier">:expires_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">expires_at</span>,
+                                                             <span class="ruby-identifier">:secret_access_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">secret_access_key</span>)
+
+      <span class="ruby-node">&quot;#{url}?Signature=#{URI.escape(signature)}&amp;Expires=#{URI.escape(expires_at.to_i)}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+
+          <a href="#M000039" class="method-signature">
 
           <span class="method-name">url</span><span class="method-args">()</span>
 
@@ -757,16 +803,15 @@ Saves the object, returns true if successfull.
         <div class="method-description">
 
           <p>
-Returns Object&#8217;s URL using protocol specified in <a
-href="Service.html">Service</a>, e.g. <a
-href="http://domain.com.s3.amazonaws.com/key/with/path.extension">domain.com.s3.amazonaws.com/key/with/path.extension</a>
+Returns Object&#8217;s URL using protocol specified in service, e.g. <tt><a
+href="http://domain.com.s3.amazonaws.com/key/with/path.extension">domain.com.s3.amazonaws.com/key/with/path.extension</a></tt>
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000051-source">
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/object.rb, line 95</span>
+<span class="ruby-comment cmt"># File lib/s3/object.rb, line 100</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url</span>
       <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-node">&quot;#{protocol}#{host}/#{path_prefix}#{key}&quot;</span>)
     <span class="ruby-keyword kw">end</span>

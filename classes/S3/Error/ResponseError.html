@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Class: Stree::Error::ResponseError [stree ]</title>
+  <title>Class: S3::Error::ResponseError [s3 ]</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
@@ -46,16 +46,16 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Class</strong></td>
-          <td class="class-name-in-header">Stree::Error::ResponseError</td>
+          <td class="class-name-in-header">S3::Error::ResponseError</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
 
 
-                <a href="../../../files/lib/stree/exceptions_rb.html">
+                <a href="../../../files/lib/s3/exceptions_rb.html">
 
-                lib/stree/exceptions.rb
+                lib/s3/exceptions.rb
 
                 </a>
 
@@ -105,9 +105,9 @@ ErrorResponse.
 
       <div class="name-list">
 
-        <a href="#M000002">exception</a>&nbsp;&nbsp;
+        <a href="#M000008">exception</a>&nbsp;&nbsp;
 
-        <a href="#M000001">new</a>&nbsp;&nbsp;
+        <a href="#M000007">new</a>&nbsp;&nbsp;
 
       </div>
     </div>
@@ -146,12 +146,12 @@ ErrorResponse.
       <h3 class="section-bar">Public Class methods</h3>
 
 
-      <div id="method-M000002" class="method-detail">
-        <a name="M000002"></a>
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
 
         <div class="method-heading">
 
-          <a href="#M000002" class="method-signature">
+          <a href="#M000008" class="method-signature">
 
           <span class="method-name">exception</span><span class="method-args">(code)</span>
 
@@ -165,13 +165,13 @@ ErrorResponse.
 Factory for all other Exception classes in module, each for every error
 response available from AmazonAWS
 </p>
-<h4>Parameters:</h4>
-<table>
-<tr><td valign="top"><tt>code</tt>:</td><td>code name of exception
+<h4>Parameters</h4>
+<ul>
+<li><tt>code</tt> - Code name of exception
 
-</td></tr>
-</table>
-<h4>Returns:</h4>
+</li>
+</ul>
+<h4>Returns</h4>
 <p>
 Descendant of <a href="ResponseError.html">ResponseError</a> suitable for
 that exception code or <a href="ResponseError.html">ResponseError</a> class
@@ -179,12 +179,12 @@ if no class found
 </p>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000002-source">
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/exceptions.rb, line 32</span>
+<span class="ruby-comment cmt"># File lib/s3/exceptions.rb, line 34</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">exception</span>(<span class="ruby-identifier">code</span>)
-        <span class="ruby-constant">Stree</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">code</span>)
+        <span class="ruby-constant">S3</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">code</span>)
       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NameError</span>
         <span class="ruby-constant">ResponseError</span>
       <span class="ruby-keyword kw">end</span>
@@ -195,12 +195,12 @@ if no class found
       </div>
 
 
-      <div id="method-M000001" class="method-detail">
-        <a name="M000001"></a>
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
 
         <div class="method-heading">
 
-          <a href="#M000001" class="method-signature">
+          <a href="#M000007" class="method-signature">
 
           <span class="method-name">new</span><span class="method-args">(message, response)</span>
 
@@ -210,21 +210,24 @@ if no class found
 
         <div class="method-description">
 
-          <h4>Parameters:</h4>
-<table>
-<tr><td valign="top"><tt>message</tt>:</td><td>what went wrong
+          <p>
+Creates new S3::ResponseError.
+</p>
+<h4>Parameters</h4>
+<ul>
+<li><tt>message</tt> - what went wrong
 
-</td></tr>
-<tr><td valign="top"><tt>response</tt>:</td><td>Net::HTTPResponse object or nil
+</li>
+<li><tt>response</tt> - Net::HTTPResponse object or nil
 
-</td></tr>
-</table>
+</li>
+</ul>
 
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000001-source">
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/stree/exceptions.rb, line 18</span>
+<span class="ruby-comment cmt"># File lib/s3/exceptions.rb, line 20</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">response</span>)
         <span class="ruby-ivar">@response</span> = <span class="ruby-identifier">response</span>
         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">message</span>)
