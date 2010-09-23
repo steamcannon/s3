@@ -3,7 +3,7 @@
 require File.expand_path("../lib/s3/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "s3"
+  s.name        = "steamcannon-s3"
   s.version     = S3::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Jakub Kuźma"]
